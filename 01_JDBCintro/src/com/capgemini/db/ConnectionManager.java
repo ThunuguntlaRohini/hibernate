@@ -1,0 +1,27 @@
+package com.capgemini.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionManager {
+	public static Connection CreateConnection() throws ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.jdbc.Driver");
+		String dbURL = "jdbc:mysql://localhost:3306/demodb";
+		String userName = "root";
+		String password = "pass";
+		Connection connection = DriverManager.getConnection(dbURL, userName,password);
+		return connection;
+		
+	}
+	public static void closeConnection(Connection connection) throws SQLException{
+		connection.close();
+	}
+
+	public static void main(String[] args) {
+		
+
+		
+	}
+
+}
